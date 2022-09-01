@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-sacle=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+	<style type="text/css">
+	
+		* {padding: 0;margin: 0;}
+		@-webkit-keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+				-ms-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+		@keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+				-ms-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+		body,html {max-width: 750px;margin: 0 auto;font-family:"微软雅黑";}
+		.main-title {height: 52px;line-height: 52px;text-align: center;border-bottom: 1px solid rgb(239, 239, 239);position: relative;}
+		.main-result {position: fixed;right: 30px;top: 10px;width: 100px;}
+		.back___SUWOp {width: 100%;}
+		.star___3sYUm {position: absolute;left:0;top: 0;
+			width: 102px; height: 78px
+			-webkit-animation: spin 3s linear infinite;
+			animation: spin 3s linear infinite;
+		}
+
+		.block-title {font-size:14px;display: flex;align-items: center;padding: 0 15px;height: 45px;background-color: rgb(246, 247, 251);box-sizing: border-box;width: 100%;}
+		.block-title::before{content: '';display: inline-block;width: 5px;height: 15px;background-color: rgb(77, 172, 252);margin-right: 10px;}
+
+		.block {background-color: #fff;border-bottom: 1px solid rgb(239, 239, 239);border-top: 1px solid rgb(239, 239, 239);}
+		.block-line {min-height: 38px;padding: 5px 15px;display: flex;align-items: center;width: 100%;}
+		.block-line-name {text-align: right;color: rgb(148, 148, 148);width: 80px;}
+		.block-line-value {padding-left: 25px;}
+		.block-line-icon {margin-left: 20px;display: flex;align-items: center;}
+		.block-line-icon img {width: 20px;height: 20px;}
+
+		.block-chaosong {display: flex;flex-wrap: wrap;padding: 8px 0;}
+		.chaosong-item {padding: 4px 6px;border-radius: 5px;border: 1px solid rgb(240, 240, 240);margin: 6px 8px;height: 28px;line-height: 28px;}
+
+		.fixed-btn {position: fixed;max-width: 750px;bottom: 0px;background: #fff;left: 0;right: 0;margin: auto;}
+		.fixed-inner-btn {width: 98%;height: 42px;border: 1.5px solid rgb(222, 222, 222);border-radius: 5px;box-sizing: border-box;display: flex;justify-content: center;align-items: center;color: rgb(77, 172, 252);background: #fff;margin:0 auto 10px;}
+
+		.block-line-value img {width: 120px;height: 120px;}
+	</style>
+</head>
+<body>
+
+
+<div class="main">
+	<div class="main-title">
+		宋智明的学生请假
+		<div class="main-result">
+			<img src="./img/star_back.00de3289.png" alt="" class="back___SUWOp">
+			<img src="data:image/png;base64,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" alt="" class="star___3sYUm" >
+		</div>
+
+	</div>
+
+	<div class="main-content">
+		
+		<div class="main-block">
+			<div class="block-title">
+				申请人
+			</div>
+			<div class="block">
+				<div class="block-line">
+					<div class="block-line-name">
+						姓名
+					</div>
+					<div class="block-line-value">
+						宋智明
+					</div>
+					<div class="block-line-icon">
+						<img src="./img/phone.jpg">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="block-title">
+				申请内容
+			</div>
+			<div class="block">
+				<div class="block-line">
+					<div class="block-line-name">
+						审批编号
+					</div>
+					<div class="block-line-value">
+						20220615172728746453
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						请假类型
+					</div>
+					<div class="block-line-value">
+						事假
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						请假原因
+					</div>
+					<div class="block-line-value">
+						出去聚餐
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						是否离校
+					</div>
+					<div class="block-line-value">
+						是
+					</div>
+				</div>
+
+				<div class="block-line">
+					<div class="block-line-name">
+						是否已阅读，并认可上述内容
+					</div>
+					<div class="block-line-value">
+						是
+					</div>
+				</div>
+
+
+				<div class="block-line" style="align-items: flex-start;">
+					<div class="block-line-name">
+						离校同学需上传外出承诺书
+					</div>
+					<div class="block-line-value">
+						<img src="./img/bingqing.jpg">
+					</div>
+				</div>
+
+				<div class="block-line">
+					<div class="block-line-name">
+						开始时间
+					</div>
+					<div class="block-line-value">
+						2022-06-27 12:00
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						结束时间
+					</div>
+					<div class="block-line-value">
+						2022-06-27 18:00
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						时长(天)
+					</div>
+					<div class="block-line-value">
+						0.450
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						本人联系电话
+					</div>
+					<div class="block-line-value">
+						1821567835
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						紧急联系人
+					</div>
+					<div class="block-line-value">
+						宋智明
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						紧急联系电话
+					</div>
+					<div class="block-line-value">
+						1821567835
+					</div>
+				</div>
+				<div class="block-line">
+					<div class="block-line-name">
+						病假、公假无附件不可通过
+					</div>
+					<div class="block-line-value">
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="block-title">
+				审批进度
+			</div>
+			<div class="block">
+				<style type="text/css">
+					.block-sign {padding: 10px 15px;width: 100%;box-sizing: border-box;}
+					.sign-top {display: flex;align-items: center;justify-content: space-between;}
+					.sign-top-left {display: flex;align-items: center;}
+					.sign-top-left .xu {display: flex;width: 25px;height: 25px;justify-content: center;align-items: center;
+						background-color: rgb(138, 240, 107);
+						border-radius: 25px;
+						color: #fff;
+						margin-right: 16px;
+					}
+					.sign-top-right {color: rgb(155, 155, 155);}
+
+					.sign-content {display: flex;align-items: center;}
+					.sign-content-left {display: flex;width: 25px;justify-content: center;height: 180px;}
+					.sign-content-left .line {display: inline-block;width: 1px;background-color: rgb(138, 240, 107);}
+					.sign-content-right {padding: 10px 0;}
+					.sign-result {color:  rgb(138, 240, 107);margin-left: 16px;}
+					.sign-img {width: 150px;margin: 10px 0;margin-left: 16px;}
+					.sign-img img {width: 100%;}
+					.sign-time {color: rgb(138, 240, 107);margin-top: 40px;}
+				</style>
+				<div class="block-sign">
+					<div class="sign-top">
+						<div class="sign-top-left">
+							<div class="xu">1</div>
+							<div class="sign-name">李青龙(2007000396)</div>
+						</div>
+						<div class="sign-top-right">2022-06-26 22:00</div>
+					</div>
+
+					<div class="sign-content">
+						<div class="sign-content-left">
+							<div class="line"></div>
+						</div>
+						<div class="sign-content-right">
+							<div class="sign-result">已同意</div>
+							<div class="sign-img">
+								<img src="./img/qianming.jpg">
+							</div>
+							<div class="sign-time">通过  2022-06-26 22:00</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="block-title">
+				流程全部通过时抄送
+			</div>
+			<div class="block">
+				<div class="block-chaosong">
+					<div class="chaosong-item">
+						李青龙(2007000396)
+					</div>
+					<div class="chaosong-item">
+						费德莲(18087445867)
+					</div>
+					<div class="chaosong-item">
+						容会(2002000470)
+					</div>
+					<div class="chaosong-item">
+						潘宏斌(2003000435)
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div style="height:60px"></div>
+	<div class="fixed-btn">
+		<div class="fixed-inner-btn">
+			
+			转发审核表单
+		</div>
+	</div>
+</div>
+
+
+
+
+</body>
+</html>
